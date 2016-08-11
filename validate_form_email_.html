@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>validate-form-email</title>
+    <script type="text/javascript">
+        function validate_email(field){
+            with(field){
+                var alpha=value.indexOf("@");
+                var idol=value.lastIndexOf(".");
+                if(value==""||value=="null"){
+                    alert("请输入邮箱"); 
+                    return false;
+                }
+                else if(alpha<1||idol-alpha<2){
+                    alert("输入邮箱格式不正确");
+                    return false;
+                }
+                else{
+                    return true;
+                }
+            }
+        }
+
+        function validate_form(form){
+            with(form){
+                if(validate_email(email)==false){
+                   email.focus();
+                    return false;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="" method="" onsubmit="return validate_form(this)">
+        email:<input type="text" name="email">
+        <input type="submit" value="submit">
+    </form>
+</body>
+</html>
